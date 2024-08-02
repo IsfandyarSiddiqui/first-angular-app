@@ -9,7 +9,6 @@ import { Component, Input } from '@angular/core';
 })
 export class FeaturedComponent {
   @Input() image_source!: string;
-  @Input() image_alt!: string;
   @Input() book_name!: string;
   @Input() author_name!: string;
 }
