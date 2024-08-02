@@ -1,1 +1,42 @@
-<p>book-list works!</p>
+<div>
+    <h1>Book List</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Description</th>
+          <th>Image</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- <tr *ngFor="let book of books">
+            <td>{{ book.id }}</td>
+            <td>{{ book.bookName }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.description }}</td>
+            <td><img [src]="book.image" alt="{{ book.bookName }}" width="50"/></td>
+            <td>
+                <button (click)="deleteBook(book.id)">Delete</button>
+            </td>
+        </tr> -->
+
+        @for (book of books; track book.id)
+        {
+            <tr>
+                <td>{{ book.id }}</td>
+                <td>{{ book.bookName }}</td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.description }}</td>
+                <td><img [src]="book.image" alt="{{ book.bookName }}" width="50"/></td>
+                <td>
+                    <button (click)="deleteBook(book.id)">Delete</button>
+                </td>
+            </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  

@@ -7,8 +7,10 @@ import { Book } from './book.model';
 @Injectable({
   providedIn: 'root'
 })
+
 export class BookService {
-  private apiUrl = 'http://localhost:5000/api/Books';
+  // private apiUrl = 'http://localhost:5000/api/Books';
+  private apiUrl = 'https://localhost:44376/api/Books'
 
   constructor(private http: HttpClient) { }
 
