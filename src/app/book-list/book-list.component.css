@@ -1,0 +1,8 @@
+#input_id { max-width: 40px;}
+#input_title, #input_author, #input_image {
+    max-width: 160px; 
+}
+#input_description { 
+    width: 480px;
+}
+#input_image { max-width: 80px; }

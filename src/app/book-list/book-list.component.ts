@@ -14,17 +14,18 @@ export class BookListComponent implements OnInit {
 
 	constructor(private bookService: BookService) { }
 
-	ngOnInit (){
+	ngOnInit(){
 		this.loadBooks();
 	}  
 
 	private loadBooks() {
-		console.log("Hello ");
-		console.log(
 		this.bookService.getBooks().subscribe(
 			data => {
-			this.books = data;
-		}));
+				this.books = data;
+				this.books.forEach(book=>book.image = "Images/"+book.image
+				)
+			}
+		);
 	}
 
 	deleteBook(id: number): void {
@@ -32,4 +33,5 @@ export class BookListComponent implements OnInit {
 			this.loadBooks(); // Reload books after deletion
 		});
 	}
+
 }
