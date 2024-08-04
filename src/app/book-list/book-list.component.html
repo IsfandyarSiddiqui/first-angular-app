@@ -1,4 +1,26 @@
 <div>
+  <h1 class="title is-5">Add Your Own Books To The Book List</h1>
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <div class="control fifty m-2">
+      <label class="label" for="input_title">Title</label>
+      <input class="input" type="text" id="input_title" formControlName="title" placeholder="Enter the name of the book" required />
+    </div>
+    <div class="control fifty m-2">
+      <label class="label" for="input_author">Author</label>
+      <input class="input" type="text" id="input_author" formControlName="author" placeholder="Enter the name of the author" required />
+    </div>
+    <div class="control m-2">
+      <label class="label" for="input_description" >Description</label>
+      <textarea class="textarea" id="input_description" formControlName="description" placeholder="Describe the book and why someone should read it."></textarea>
+    </div>
+
+    <div class="control m-2">
+        <button class="button is-link">Add Book</button>
+    </div>
+  </form>
+</div>
+
+<div>
     <table class="mx-6">
       <thead>
         <tr class="has-text-centered">
@@ -11,17 +33,6 @@
         </tr>
       </thead>
       <tbody>
-        <!-- <tr *ngFor="let book of books">
-            <td>{{ book.id }}</td>
-            <td>{{ book.bookName }}</td>
-            <td>{{ book.author }}</td>
-            <td>{{ book.description }}</td>
-            <td><img [src]="book.image" alt="{{ book.bookName }}" width="50"/></td>
-            <td>
-                <button (click)="deleteBook(book.id)">Delete</button>
-            </td>
-        </tr> -->
-
         @for (book of books; track book.id)
         {
             <tr class="has-text-centered">
@@ -35,25 +46,6 @@
                 </td>
             </tr>
         }
-        <tr class="has-text-centered">
-          <td class="px-2 py-2"> 
-            <input id="input_id" type="number" value="10"/> 
-          </td>
-          <td class="px-2 py-2"> 
-            <input id="input_title" type="text" placeholder="Title" /> 
-          </td>
-          <td class="px-2 py-2"> 
-            <input id="input_author" type="text" placeholder="Author"/> 
-          </td>
-          <td class="px-2 py-2"> 
-            <input id="input_description" type="text" placeholder="Description"/> 
-          </td>
-          <td class="px-2 py-2"> <input id="input_image" type="text" value="unavailable.jpg"/> </td>
-          <td class="px-2 py-2"> <button type="submit">Add Book</button> </td>
-          <!-- <td class="px-2 py-2">
-              <button (click)="deleteBook(book.id)">Delete</button>
-          </td> -->
-      </tr>
       </tbody>
     </table>
   </div>
