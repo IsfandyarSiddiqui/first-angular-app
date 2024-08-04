@@ -1,51 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import { afterRender, Component, OnInit } from '@angular/core';
 import { BookService } from '../book.service';
 import { Book } from '../book.model';
-import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
+
+// let invisble_element: HTMLElement| null = document.querySelector("#invisible_helper");
+// invisble_element?.addEventListener( "click", () => this.loadBooks );
+// invisble_element?.click();
 
 @Component({
 	selector: 'app-book-list',
 	standalone: true,
-	imports: [ReactiveFormsModule],
+	imports: [],
 	templateUrl: './book-list.component.html',
 	styleUrl: './book-list.component.css'
 })
 export class BookListComponent implements OnInit {
 	books: Book[] = [];
-	myForm!: FormGroup;
+	max_id = 0;
 
-	constructor(private bookService: BookService, private fb: FormBuilder) 
+	constructor(private bookService: BookService) 
 	{
-		this.myForm = this.fb.group({
-			title: ['', [Validators.required]],
-			author: ['', [Validators.required]],
-			description: ['', []],
-		});
+		afterRender( 
+			() => { document.querySelector("#invisible_helper")?.addEventListener( "click", () => this.loadBooks() ) }
+		);
 	}
 
-	onSubmit() {
-		if (this.myForm.valid)
-		{
-			console.log(this.myForm.value);
-			this.bookService.addBook(
-				new Book(
-					100,this.myForm.value.title,this.myForm.value.author,
-					this.myForm.value.description, "unavailable.jpg"
-				) 
-			)	
-		}
-	}
+	ngOnInit() { this.loadBooks(); }  
 
-	ngOnInit(){
-		this.loadBooks();
-	}  
-
-	private loadBooks() {
+	loadBooks() {
+		this.max_id = 0;
 		this.bookService.getBooks().subscribe(
 			data => {
 				this.books = data;
-				this.books.forEach(book=>book.image = "Images/"+book.image
-				)
+				for(let book of this.books)
+				{
+					book.image = "Images/"+book.image;
+					this.max_id++;
+				}
 			}
 		);
 	}

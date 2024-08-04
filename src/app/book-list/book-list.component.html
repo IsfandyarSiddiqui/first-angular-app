@@ -1,26 +1,4 @@
 <div>
-  <h1 class="title is-5">Add Your Own Books To The Book List</h1>
-  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-    <div class="control fifty m-2">
-      <label class="label" for="input_title">Title</label>
-      <input class="input" type="text" id="input_title" formControlName="title" placeholder="Enter the name of the book" required />
-    </div>
-    <div class="control fifty m-2">
-      <label class="label" for="input_author">Author</label>
-      <input class="input" type="text" id="input_author" formControlName="author" placeholder="Enter the name of the author" required />
-    </div>
-    <div class="control m-2">
-      <label class="label" for="input_description" >Description</label>
-      <textarea class="textarea" id="input_description" formControlName="description" placeholder="Describe the book and why someone should read it."></textarea>
-    </div>
-
-    <div class="control m-2">
-        <button class="button is-link">Add Book</button>
-    </div>
-  </form>
-</div>
-
-<div>
     <table class="mx-6">
       <thead>
         <tr class="has-text-centered">
@@ -49,4 +27,4 @@
       </tbody>
     </table>
   </div>
-  
+  <button id="invisible_helper" [class]="max_id.toString()"> </button>

@@ -1,3 +1,6 @@
-.fifty {
-    max-width: 250px;
+#invisble_helper {
+    width: 0px;
+    height: 0px;
+    margin: 0px;
+    padding: 0px;
 }
