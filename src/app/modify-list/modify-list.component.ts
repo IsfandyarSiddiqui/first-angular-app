@@ -1,9 +1,8 @@
-import { afterRender, Component, Input } from '@angular/core';
+import { afterRender, Component, Input, signal } from '@angular/core';
 import { BookService } from '../book.service';
 import { Book } from '../book.model';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { BookListComponent } from "../book-list/book-list.component"
-import { signal } from '@angular/core';
 
 
 @Component({
@@ -55,7 +54,7 @@ export class ModifyListComponent {
 			{
 				let max_id = document.querySelector("#invisible_helper")?.classList[0];
 				const newbook: Book = new Book(
-					Number(max_id),this.myForm.value.title,this.myForm.value.author,
+					15,this.myForm.value.title,this.myForm.value.author, //Number(max_id)
 					this.myForm.value.description, "unavailable.jpg"
 				);
 				this.bookService.addBook(newbook).subscribe();

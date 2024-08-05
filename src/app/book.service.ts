@@ -9,8 +9,8 @@ import { Book } from './book.model';
 })
 
 export class BookService {
-  private apiUrl = 'http://localhost:5000/api/Books';
-  // private apiUrl = 'https://localhost:44376/api/Books';
+  // private apiUrl = 'http://localhost:5000/api/Books';
+  private apiUrl = 'https://localhost:44376/api/Books';
   // private apiUrl = 'https://localhost:44362/api/Books';
   // private apiUrl = 'http://localhost:5000/api/Books';
 

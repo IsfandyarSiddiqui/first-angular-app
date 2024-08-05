@@ -1,0 +1,19 @@
+<div>
+    <h1 class="title is-5">Search book by ID</h1>
+    
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <div class="control m-2" style="max-width: 250px;">
+            <label class="label" for="search_id">ID</label>
+            <input class="input" type="text" id="search_id" formControlName="search_id" placeholder="Enter the ID" required />
+            @if(idSearchErr()) { <span>Incorrect Input (ID)</span> }
+        </div>
+        <div class="control m-2">
+            <button class="button is-link">Find</button>
+        </div>
+    </form>
+    @if(book!==null)
+    {
+        <h1 class="subtitle is-5"> <strong>{{book.bookName}}</strong> by {{book.author}} </h1>
+    }
+    
+</div>
