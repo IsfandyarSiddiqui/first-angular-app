@@ -1,6 +1,20 @@
 <div>
+  @if(add_book_bool)
+  {
     <h1 class="title is-5">Add Your Own Books To The Book List</h1>
+  } @else {
+    <h1 class="title is-5">Update A Book In The Book List</h1>
+  }
+
     <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+      @if(!add_book_bool)
+      {
+        <div class="control fifty m-2">
+          <label class="label" for="input_id">ID</label>
+          <input class="input" type="number" id="input_id" formControlName="id" placeholder="Enter the ID of the book" required />
+          @if(idValErr()) { <span>Incorrect Input (Id)</span> }
+        </div>
+      }
       <div class="control fifty m-2">
         <label class="label" for="input_title">Title</label>
         <input class="input" type="text" id="input_title" formControlName="title" placeholder="Enter the name of the book" required />
