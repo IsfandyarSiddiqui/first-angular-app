@@ -14,7 +14,7 @@ export class SearchComponent {
 	myForm!: FormGroup;
 	idSearchErr = signal(false);
 	displayBooks = signal(false);
-	book!: Book;
+	book?: Book;
 	
 	constructor(private bookService: BookService, private fb: FormBuilder) 
 	{
@@ -26,7 +26,6 @@ export class SearchComponent {
 	onSubmit() {
 		if (this.myForm.valid)
 		{
-			console.log("Entered if")
 			this.idSearchErr.set(false);
 			this.bookService.getBook(Number(this.myForm.value.search_id)).subscribe(
 				data => {

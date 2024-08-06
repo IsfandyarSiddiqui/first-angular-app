@@ -1,0 +1,22 @@
+<div>
+    <h2 class="title is-3" id="add_book_section">Add your own Book</h2>
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <div class="control fifty m-2">
+            <label class="label" for="input_title">Title</label>
+            <input class="input" type="text" id="input_title" formControlName="title" placeholder="Enter the name of the book" required />
+            @if(titleValErr()) { <span>Incorrect Input (Title)</span> }
+        </div>
+        <div class="control fifty m-2">
+            <label class="label" for="input_author">Author</label>
+            <input class="input" type="text" id="input_author" formControlName="author" placeholder="Enter the name of the author" required />
+            @if(authorValErr()) { <span>Incorrect Input (Author)</span> }
+        </div>
+        <div class="control m-2">
+            <label class="label" for="input_description" >Description</label>
+            <textarea class="textarea" id="input_description" formControlName="description" placeholder="Describe the book and why someone should read it."></textarea>
+        </div>
+        <div class="control m-2">
+            <button class="button is-link">Add Book</button>
+        </div>
+    </form>
+</div>
