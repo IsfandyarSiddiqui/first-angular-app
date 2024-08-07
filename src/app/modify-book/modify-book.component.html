@@ -3,26 +3,26 @@
     <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
         <div class="control fifty m-2">
             <label class="label" for="modify_id">ID</label>
-            <input class="input" type="number" id="modify_id" formControlName="id" value="0" required />
-            @if(idValErr()) { <span>Incorrect Input (ID)</span> }
+            <input class="input" type="number" id="modify_id" formControlName="id" placeholder="Enter the id of the book" required />
+            @if(idValErr()) { <span class="has-text-danger">Incorrect Input (ID)</span> }
         </div>
         
 		<div class="control fifty m-2">
             <label class="label" for="modify_title">Title</label>
             <input class="input" type="text" id="modify_title" formControlName="title" placeholder="Enter the name of the book" required />
-            @if(titleValErr()) { <span>Incorrect Input (Title)</span> }
+            @if(titleValErr()) { <span class="has-text-danger">Incorrect Input (Title)</span> }
         </div>
         <div class="control fifty m-2">
             <label class="label" for="modify_author">Author</label>
             <input class="input" type="text" id="modify_author" formControlName="author" placeholder="Enter the name of the author" required />
-            @if(authorValErr()) { <span>Incorrect Input (Author)</span> }
+            @if(authorValErr()) { <span class="has-text-danger">Incorrect Input (Author)</span> }
         </div>
         <div class="control m-2">
             <label class="label" for="modify_description" >Description</label>
             <textarea class="textarea" id="modify_description" formControlName="description" placeholder="Describe the book and why someone should read it."></textarea>
         </div>
         <div class="control m-2">
-            <button class="button is-link">Add Book</button>
+            <button class="button is-link">Update Book</button>
         </div>
     </form>
 </div>

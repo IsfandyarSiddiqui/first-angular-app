@@ -42,8 +42,9 @@ export class ModifyBookComponent {
 		}
 		else 
 		{
-			if( this.myForm.value.title === "" ) this.titleValErr.set(true);
+      if( this.myForm.value.title === "" ) this.titleValErr.set(true);
 			if( this.myForm.value.author === "" ) this.authorValErr.set(true);
+			if( this.myForm.value.id === "" ) this.idValErr.set(true);
 		}
 	}
 }

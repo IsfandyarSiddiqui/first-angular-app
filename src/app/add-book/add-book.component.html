@@ -4,12 +4,12 @@
         <div class="control fifty m-2">
             <label class="label" for="input_title">Title</label>
             <input class="input" type="text" id="input_title" formControlName="title" placeholder="Enter the name of the book" required />
-            @if(titleValErr()) { <span>Incorrect Input (Title)</span> }
+            @if(titleValErr()) { <span class="has-text-danger">Incorrect Input (Title)</span> }
         </div>
         <div class="control fifty m-2">
             <label class="label" for="input_author">Author</label>
             <input class="input" type="text" id="input_author" formControlName="author" placeholder="Enter the name of the author" required />
-            @if(authorValErr()) { <span>Incorrect Input (Author)</span> }
+            @if(authorValErr()) { <span class="has-text-danger">Incorrect Input (Author)</span> }
         </div>
         <div class="control m-2">
             <label class="label" for="input_description" >Description</label>

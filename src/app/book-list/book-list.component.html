@@ -7,7 +7,7 @@
         <th class="px-2 py-2">Author</th>
         <th class="px-2 py-2">Description</th>
         <th class="px-2 py-2">Image</th>
-        <th class="px-2 py-2">Actions</th>
+        <th class="px-2 py-2"> </th>
       </tr>
     </thead>
     <tbody>
@@ -20,7 +20,7 @@
               <td class="px-2 py-2">{{ book.description }}</td>
               <td class="px-2 py-2"><img class="image is-64x64" [src]="book.image" alt="{{ book.bookName }}" /></td>
               <td class="px-2 py-2">
-                  <button (click)="deleteBook(book.id)">Delete</button>
+                  <button class="button is-danger" (click)="deleteBook(book.id)">Delete</button>
               </td>
           </tr>
       }

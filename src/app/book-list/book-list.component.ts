@@ -43,6 +43,7 @@ export class BookListComponent implements OnInit {
 	modify_book($event:Book)
 	{
 		$event.image = "Images/"+ $event.image;
+		this.books = this.books.filter(x=>x.id!=$event.id);
 		this.books.push($event);
 		this.max_id.update( x => x + 1 );
 	}
