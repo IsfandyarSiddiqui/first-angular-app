@@ -23,11 +23,11 @@ export class BookListComponent implements OnInit {
 		this.bookService.getBooks().subscribe(
 			data => {
 				this.books = data;
+				this.max_id.set(0);
 				for(let book of this.books)
 				{
 					book.image = "Images/"+book.image;
-					let temp_id: number = book.id;
-					this.max_id.update( x => (++x>++temp_id) ? x : book.id );
+					this.max_id.update( x => x + 1 );
 				}
 			}
 		);
@@ -37,15 +37,14 @@ export class BookListComponent implements OnInit {
 	{
 		$event.image = "Images/"+ $event.image;
 		this.books.push($event);
-		this.max_id.update(x=>x+1);
+		this.max_id.update( x => x + 1 );
 	}
 
 	modify_book($event:Book)
 	{
 		$event.image = "Images/"+ $event.image;
 		this.books.push($event);
-		let temp_id: number = $event.id;
-		this.max_id.update( x => (++x>++temp_id) ? x : $event.id );
+		this.max_id.update( x => x + 1 );
 	}
 
 	deleteBook(id: number): void {
