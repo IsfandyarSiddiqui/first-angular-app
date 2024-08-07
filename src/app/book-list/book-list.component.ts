@@ -2,11 +2,12 @@ import { Component, OnInit, signal } from '@angular/core';
 import { BookService } from '../book.service';
 import { Book } from '../book.model';
 import { AddBookComponent } from '../add-book/add-book.component';
+import { ModifyBookComponent } from '../modify-book/modify-book.component';
 
 @Component({
 	selector: 'app-book-list',
 	standalone: true,
-	imports: [AddBookComponent],
+	imports: [AddBookComponent, ModifyBookComponent],
 	templateUrl: './book-list.component.html',
 	styleUrl: './book-list.component.css'
 })
@@ -37,6 +38,14 @@ export class BookListComponent implements OnInit {
 		$event.image = "Images/"+ $event.image;
 		this.books.push($event);
 		this.max_id.update(x=>x+1);
+	}
+
+	modify_book($event:Book)
+	{
+		$event.image = "Images/"+ $event.image;
+		this.books.push($event);
+		let temp_id: number = $event.id;
+		this.max_id.update( x => (++x>++temp_id) ? x : $event.id );
 	}
 
 	deleteBook(id: number): void {
